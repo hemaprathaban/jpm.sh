@@ -1,0 +1,20 @@
+[
+	{
+		"name": "checkbox1"
+		,"type": "bool"
+		,"value": true
+		,"title": "Label"
+		,"description": "Description."
+	}
+	,{
+		"name": "list1"
+		,"type": "menulist"
+		,"value": 1
+		,"title": "Let's select one"
+		,"options": [
+			{"value": 0, "label": "Zero"}
+			,{"value": 1, "label": "One"}
+			,{"value": 2, "label": "Two"}
+		]
+	}
+]

@@ -1,0 +1,63 @@
+# -*- sh; tab-width: 4; coding: utf-8 -*-
+# vim: ts=4 noet ai ft=sh
+
+# An example version_info file.
+# This file is part of JPM.sh.
+# Copyright (C) 2016 the Desktopd developers
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+# Basic information
+
+addon_id='foobar-addon'
+addon_version='0.1.0~a2'
+addon_release_phase='beta' # default: 'stable', suppresses git sha1 if 'stable'
+addon_name='FooBar Add-on'
+addon_license_id='AGPL-3.0+' # default: 'GPL-3.0+'
+
+
+# Additional information
+
+addon_author='FooBar Add-on Foundation, Inc' # default: (none)
+addon_description='This is an example add-on.' # default: (none)
+addon_website_uri='https://optional.example/' # default: (none)
+
+
+# Source code structure
+
+addon_src_dir=src # default: 'src'
+addon_main_path=main.js # default: 'main.js'
+
+# JPM.sh does not check JSON syntax.
+# Ignored if no such files exist.
+#addon_preferences_json_path=preferences.json # default: 'preferences.json'
+#addon_translators_json_path=translators.json # default: 'translators.json'
+
+
+# Compatibility options
+
+#addon_firefox_version='>=44.0a1' # default: '>=38.0a1'
+#addon_fennec_version='' # default: (none)
+#addon_thunderbird_version='' # default: (none)
+#addon_seamonkey_version='' # default: (none)
+#addon_unpack=1 # default: (none)
+#addon_support_private_browsing=1 # default: (none)
+
+
+# Build options
+addon_minify_html=1 # default: (none)
+addon_minify_css=1 # default: (none)
+addon_minify_js=1 # default: (none)
+

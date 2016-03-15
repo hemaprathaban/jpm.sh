@@ -1,0 +1,3 @@
+[submodule "deps/jpm-core"]
+	path = deps/jpm-core
+	url = https://notabug.org/desktopd/jpm-core
