@@ -25,6 +25,7 @@
 . "$gLibDir/xml.sh"
 . "$gLibDir/crypto.sh"
 . "$gLibDir/json.sh"
+. "$gLibDir/code-minifier.sh"
 
 # jpmXpiGetId
 jpmXpiGetId () {
@@ -98,6 +99,9 @@ jpmXpiBuild () (
 				-- "$preprocess_sed" {} \;
 		
 		# TODO: implement optional minification here
+		[ "$addon_minify_html" ] && jpmMinifyHtml "$buildDir"
+		[ "$addon_minify_css" ] && jpmMinifyCss "$buildDir"
+		[ "$addon_minify_js" ] && jpmMinifyJs "$buildDir"
 	:;} || jpmConsoleLog "xpi-build: Debugging build enabled."
 	
 	addon_preferences_json=''
