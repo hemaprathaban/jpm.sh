@@ -82,7 +82,7 @@ jpmXpiBuild () (
 			uncomitted=+uncomitted
 		}
 		printf '//Build:git-%s%s' "$gitHash" "$uncomitted" \
-			> "$buildDir/${addon_main_path}"
+			>> "$buildDir/${addon_main_path}"
 		
 		[ "$addon_release_phase" = stable ] && versionGit=''
 	}
