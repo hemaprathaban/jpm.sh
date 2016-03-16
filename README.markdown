@@ -45,6 +45,7 @@ available)
 
 ## TODO
 * More documentation work needed.
+* Unimplemented: em:translator
 
 ## License
 Please consult [FSF](https://www.fsf.org/) for whether using this program to

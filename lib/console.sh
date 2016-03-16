@@ -38,6 +38,7 @@ progressFilter () {
 }
 
 jpmConsoleLog () {
+	[ "$JPM_SILENT" ] && return
 	[ -t 2 ] && [ -z "$ZOMBIE_NOCOLOR" ] && {
 		printf "${TERM_UNIMPORTANT}[%s]${TERM_ENDC} ${TERM_OKBLUE}%s${TERM_ENDC}\n"	"`date`" "$@" >&2
 	:;} || {

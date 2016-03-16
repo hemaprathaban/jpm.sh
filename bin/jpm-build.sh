@@ -45,7 +45,7 @@ gManifestPath=./version_info
 # Build a .xpi package
 
 # Load manifest data
-jpmConsoleNotice "Loading: $gManifestPath"
+jpmConsoleLog "Loading: $gManifestPath"
 [ -f "$gManifestPath" ] || {
 	jpmConsoleError "No such file: $gManifestPath"
 	exit 1
@@ -56,7 +56,7 @@ jpmConsoleNotice "Loading: $gManifestPath"
 # Production build
 isProdBuild=1
 
-jpmConsoleNotice "Building .xpi ..."
+jpmConsoleLog "Building .xpi ..."
 # The package is streamed into STDOUT
 # And the package name into fd #3 (if requested)
 jpmXpiBuild "$isProdBuild" "$printPackageName"
