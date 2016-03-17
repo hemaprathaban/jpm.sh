@@ -20,6 +20,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+# Global branding switch
+[ "$JPM_SH_BROWSER_NAME" ] && gBrowserName=$JPM_SH_BROWSER_NAME \
+	|| gBrowserName='Firefox'
+[ "$JPM_SH_BROWSER_BIN" ] && gBrowserBinName=$JPM_SH_BROWSER_BIN \
+	|| gBrowserBinName=firefox
+
 # Command line arguments
 # May be empty
 printPackageName=$1

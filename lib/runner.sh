@@ -161,13 +161,13 @@ jpmFirefoxStart () (
 		cat > "$extDir/$aXpiId.xpi"
 	}
 	
-	jpmConsoleLog "runner: Profile set up. Starting Firefox..."
+	jpmConsoleLog "runner: Profile set up. Starting $gBrowserName..."
 	
 	#cd "$HOME"
 	"$aFirefoxBin" -no-remote -profile "$profileDir"
 	cd /
 	
-	jpmConsoleLog "runner: Firefox finished. Deleting the temporary profile..."
+	jpmConsoleLog "runner: $gBrowserName finished. Deleting the temporary profile..."
 	rm -rf "$tmpDir"
 )
 

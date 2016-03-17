@@ -20,12 +20,18 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+# Global branding switch
+[ "$JPM_SH_BROWSER_NAME" ] && gBrowserName=$JPM_SH_BROWSER_NAME \
+	|| gBrowserName='Firefox'
+[ "$JPM_SH_BROWSER_BIN" ] && gBrowserBinName=$JPM_SH_BROWSER_BIN \
+	|| gBrowserBinName=firefox
+
 # Command line arguments
 # May be empty
 firefoxBinPath=$1
 [ -x "$firefoxBinPath" ] && [ -f "$firefoxBinPath" ] || {
-	which firefox >/dev/null && firefoxBinPath=`which firefox` || {
-		jpmConsoleError "Firefox binary not found. Please specify a correct path."
+	which "$gBrowserBinName" >/dev/null && firefoxBinPath=`which "$gBrowserBinName"` || {
+		jpmConsoleError "$gBrowserName binary not found. Please specify a correct path."
 		exit 1
 	}
 }
@@ -64,7 +70,7 @@ xpiId=`jpmXpiGetId`
 # Debug build
 isProdBuild=''
 
-jpmConsoleNotice "Building .xpi and launching Firefox..."
+jpmConsoleNotice "Building .xpi and launching ${gBrowserName}..."
 jpmXpiBuild "$isProdBuild" | jpmFirefoxStart "$firefoxBinPath" "$xpiId"
 
 jpmConsoleNotice "Done: jpm-run.sh"
