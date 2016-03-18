@@ -50,7 +50,7 @@ jpmMinifyJs () {
 	# This new JS minifier tries to preserve line numbers.
 	# It just removes some spaces and comments.
 	jpmConsoleLog "Minifying JS files..."
-	js_sed='s/^\s*$//'
+	js_sed='s/\s*$//'
 	find "$aDir" -type f -name '*.js' -execdir \
 		sh -c \
 		'sed "$1" < "$2" > "$2.tmp" && mv -f "$2.tmp" "$2"' \

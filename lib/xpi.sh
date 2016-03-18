@@ -93,7 +93,7 @@ jpmXpiBuild () (
 		jpmConsoleLog "xpi-build: Excluding development files..."
 		rm -fr "$buildDir/debug.js" "$buildDir/data/debug" >&2
 		
-		preprocess_sed='s|^\s\{0,\}/\*!_DEBUGONLY_!.*||'
+		preprocess_sed='s,^\s*/\*!_DEBUGONLY_!.*,,'
 		find "$buildDir" -name '*.js' -exec \
 			sh -c 'sed "$1" < "$2" > "$2.tmp" && mv -f "$2.tmp" "$2"' \
 				-- "$preprocess_sed" {} \;
