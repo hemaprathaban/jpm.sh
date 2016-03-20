@@ -93,8 +93,13 @@ jpmXpiBuild () (
 		jpmConsoleLog "xpi-build: Excluding development files..."
 		rm -fr "$buildDir/debug.js" "$buildDir/data/debug" >&2
 		
-		preprocess_sed='s,^\s*/\*!_DEBUGONLY_!.*,,'
-		find "$buildDir" -name '*.js' -exec \
+		preprocess_sed_html='s,^\s*<!--!_DEBUGONLY_!.*-->\s*,,'
+		find "$buildDir" \( -name '*.html' -or -name '*.xhtml' \) -exec \
+			sh -c 'sed "$1" < "$2" > "$2.tmp" && mv -f "$2.tmp" "$2"' \
+				-- "$preprocess_sed_html" {} \;
+		
+		preprocess_sed='s,^\s*/\*!_DEBUGONLY_!.*\*/.*,,'
+		find "$buildDir" \( -name '*.js' -or -name '*.css' \) -exec \
 			sh -c 'sed "$1" < "$2" > "$2.tmp" && mv -f "$2.tmp" "$2"' \
 				-- "$preprocess_sed" {} \;
 		
@@ -243,9 +248,9 @@ jpmXpiGenInstallRdf () {
 <em:bootstrap>true</em:bootstrap>
 <em:unpack>`jpmToBoolValue "${addon_unpack}"`</em:unpack>
 <em:version>`jpmXmlEscapeArg "$2"`</em:version>
-<em:name>${addon_name}</em:name>
-<em:description>${addon_description}</em:description>
-<em:creator>${addon_author}</em:creator>
+<em:name>`jpmXmlEscapeArg "${addon_name}"`</em:name>
+<em:description>`jpmXmlEscapeArg "${addon_description}"`</em:description>
+<em:creator>`jpmXmlEscapeArg "${addon_author}"`</em:creator>
 <em:optionsURL>data:text/xml,&lt;placeholder/&gt;</em:optionsURL>
 <em:optionsType>2</em:optionsType>
 <em:multiprocessCompatible>true</em:multiprocessCompatible>
