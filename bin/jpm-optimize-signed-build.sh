@@ -1,5 +1,5 @@
 #!/bin/sh
-# -*- sh; tab-width: 4; coding: utf-8 -*-
+# -*- mode: sh; tab-width: 4; coding: utf-8 -*-
 # vim: ts=4 noet ai ft=sh
 
 # The state-of-the-art optimization against a signed Firefox add-on without

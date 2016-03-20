@@ -1,4 +1,4 @@
-# -*- sh; tab-width: 4; coding: utf-8 -*-
+# -*- mode: sh; tab-width: 4; coding: utf-8 -*-
 # vim: ts=4 noet ai ft=sh
 
 # Run Firefox with an (unpackless) add-on.

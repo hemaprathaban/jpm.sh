@@ -1,5 +1,5 @@
 #!/bin/sh
-# -*- sh; tab-width: 4; coding: utf-8 -*-
+# -*- mode: sh; tab-width: 4; coding: utf-8 -*-
 # vim: ts=4 noet ai ft=sh
 
 # Run an SDK-based Firefox add-on off the source code.
