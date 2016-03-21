@@ -32,6 +32,12 @@ jpmXpiGetId () {
 	printf %s "@${addon_id}"
 }
 
+# jpmXpiFormatVersion <version>
+jpmXpiFormatVersion () {
+	printf %s "$1" | sed 's/[^-._a-zA-Z0-9]*//g'
+}
+
+
 # jpmXpiBuild <isProdBuild> [<printPackageName>]
 # Note: Intentional use of subshell
 jpmXpiBuild () (
@@ -168,11 +174,13 @@ jpmXpiBuild () (
 
 # jpmXpiGenPackageJson <id> <version>
 jpmXpiGenPackageJson () {
+	versionF=`jpmXpiFormatVersion "$2"`
+	
 	printf '{"title":%s,"name":%s,"id":%s,"version":%s' \
 		"`jpmJsonArgToStringValue "$addon_name"`" \
 		"`jpmJsonArgToStringValue "$addon_id"`" \
 		"`jpmJsonArgToStringValue "$1"`" \
-		"`jpmJsonArgToStringValue "$2"`"
+		"`jpmJsonArgToStringValue "$versionF"`"
 	
 	printf ',"description":%s,"main":%s,"author":%s,"license":%s' \
 		"`jpmJsonArgToStringValue "$addon_description"`" \
@@ -226,6 +234,8 @@ jpmXpiGenInstallRdf () {
 	uuidFennec='{aa3c5121-dab2-40e2-81ca-7ea25febc110}'
 	uuidThunderbird='{3550f703-e582-4d05-9a08-453d09bdfdc6}'
 	uuidSeamonkey='{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}'
+
+	versionF=`jpmXpiFormatVersion "$2"`
 	
 	# XXX: hardcoded
 	targetFirefox=`jpmXpiGenInstallRdfTarget "$uuidFirefox" '38.0a1' '43.0'`
@@ -247,7 +257,7 @@ jpmXpiGenInstallRdf () {
 <em:type>2</em:type>
 <em:bootstrap>true</em:bootstrap>
 <em:unpack>`jpmToBoolValue "${addon_unpack}"`</em:unpack>
-<em:version>`jpmXmlEscapeArg "$2"`</em:version>
+<em:version>`jpmXmlEscapeArg "$versionF"`</em:version>
 <em:name>`jpmXmlEscapeArg "${addon_name}"`</em:name>
 <em:description>`jpmXmlEscapeArg "${addon_description}"`</em:description>
 <em:creator>`jpmXmlEscapeArg "${addon_author}"`</em:creator>
