@@ -238,14 +238,14 @@ jpmXpiGenInstallRdf () {
 	versionF=`jpmXpiFormatVersion "$2"`
 	
 	# XXX: hardcoded
-	targetFirefox=`jpmXpiGenInstallRdfTarget "$uuidFirefox" '38.0a1' '43.0'`
+	targetFirefox=`jpmXpiGenInstallRdfTarget "$uuidFirefox" '38.0a1' '*'`
 	targetFennec=''
 	targetThunderbird=''
 	targetSeamonkey=''
 	[ "${addon_fennec_version}" ] && \
-		targetFennec=`jpmXpiGenInstallRdfTarget "$uuidFennec" '38.0a1' '43.0'`
+		targetFennec=`jpmXpiGenInstallRdfTarget "$uuidFennec" '38.0a1' '*'`
 	[ "${addon_thunderbird_version}" ] && \
-		targetThunderbird=`jpmXpiGenInstallRdfTarget "$uuidThunderbird" '38.0' '43.0'`
+		targetThunderbird=`jpmXpiGenInstallRdfTarget "$uuidThunderbird" '38.0a1' '43.0'`
 	[ "${addon_seamonkey_version}" ] && \
 		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.43'`
 	
