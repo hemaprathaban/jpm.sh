@@ -245,9 +245,9 @@ jpmXpiGenInstallRdf () {
 	[ "${addon_fennec_version}" ] && \
 		targetFennec=`jpmXpiGenInstallRdfTarget "$uuidFennec" '38.0a1' '*'`
 	[ "${addon_thunderbird_version}" ] && \
-		targetThunderbird=`jpmXpiGenInstallRdfTarget "$uuidThunderbird" '38.0a1' '43.0'`
+		targetThunderbird=`jpmXpiGenInstallRdfTarget "$uuidThunderbird" '38.0a1' '48.*'`
 	[ "${addon_seamonkey_version}" ] && \
-		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.43'`
+		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.46'`
 	
 	cat <<RDF
 <?xml version="1.0" encoding="utf-8"?>
