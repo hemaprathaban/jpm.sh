@@ -139,7 +139,7 @@ jpmXpiBuild () (
 	cd .. >&2
 	
 	
-	[ "$isProdBuild" ] && {
+	[ "$isProdBuild" ] && [ -z "$JPM_SH_RAW_PACKAGING" ] && {
 		# Postprocessing
 		which advzip >/dev/null && {
 			jpmConsoleLog "xpi-build: Recompressing..."
