@@ -134,8 +134,7 @@ jpmXpiBuild () (
 	
 	jpmConsoleLog "xpi-build: Zipping files..."
 	# Skipping directory entries
-	# Assuming no space characters in file names
-	zip ../build.zip `find . -type f` >/dev/null
+	zip -9rXD ../build.zip ./* >/dev/null
 	cd .. >&2
 	
 	
