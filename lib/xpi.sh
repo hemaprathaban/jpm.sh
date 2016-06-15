@@ -233,6 +233,7 @@ jpmXpiGenInstallRdf () {
 	uuidFennec='{aa3c5121-dab2-40e2-81ca-7ea25febc110}'
 	uuidThunderbird='{3550f703-e582-4d05-9a08-453d09bdfdc6}'
 	uuidSeamonkey='{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}'
+	uuidPaleMoon='{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}'
 
 	versionF=`jpmXpiFormatVersion "$2"`
 	
@@ -246,7 +247,11 @@ jpmXpiGenInstallRdf () {
 	[ "${addon_thunderbird_version}" ] && \
 		targetThunderbird=`jpmXpiGenInstallRdfTarget "$uuidThunderbird" '38.0a1' '48.*'`
 	[ "${addon_seamonkey_version}" ] && \
-		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.46'`
+		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.48'`
+	
+	# XXX Experimental: Be careful!
+	[ "${addon_palemoon_version}" ] && \
+		targetPaleMoon=`jpmXpiGenInstallRdfTarget "$uuidPaleMoon" '25.0' '26.*'`
 	
 	cat <<RDF
 <?xml version="1.0" encoding="utf-8"?>
@@ -263,7 +268,7 @@ jpmXpiGenInstallRdf () {
 <em:optionsURL>data:text/xml,&lt;placeholder/&gt;</em:optionsURL>
 <em:optionsType>2</em:optionsType>
 <em:multiprocessCompatible>true</em:multiprocessCompatible>
-${targetFirefox}${targetFennec}${targetThunderbird}${targetSeamonkey}
+${targetFirefox}${targetFennec}${targetThunderbird}${targetSeamonkey}${targetPaleMoon}
 </Description>
 </RDF>
 RDF
