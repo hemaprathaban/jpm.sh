@@ -247,7 +247,7 @@ jpmXpiGenInstallRdf () {
 	[ "${addon_thunderbird_version}" ] && \
 		targetThunderbird=`jpmXpiGenInstallRdfTarget "$uuidThunderbird" '38.0a1' '48.*'`
 	[ "${addon_seamonkey_version}" ] && \
-		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.48'`
+		targetSeamonkey=`jpmXpiGenInstallRdfTarget "$uuidSeamonkey" '2.38' '2.47.*'`
 	
 	# XXX Experimental: Be careful!
 	[ "${addon_palemoon_version}" ] && \
