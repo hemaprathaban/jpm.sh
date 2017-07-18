@@ -1,0 +1,15 @@
+Source: jpm.sh
+Section: web
+Priority: optional
+Maintainer: Hema Prathaban <hemaklnce@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.8
+Homepage:https://notabug.org/desktopd/jpm.sh
+Vcs-Git: https://anonscm.debian.org/git/pkg-mozext/jpm.sh.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-mozext/jpm.sh.git
+
+Package: jpm.sh
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Tool for Firefox add-on development based on Firefox SDK
+ but without Node.js dependencies by having pure /bin/sh solution.
